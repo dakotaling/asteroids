@@ -68,7 +68,7 @@ Make sure that your virtual environment is activated when running the game.
 ## Controls
 - **Arrow Keys**: Move your spaceship
 - **Spacebar**: Shoot bullets
-- **P or Spacebar**: Pause/Resume game
+- **P**: Pause/Resume game
 - **ESC or Close Window**: Quit game
 
 ## Object-Oriented Programming Concepts
