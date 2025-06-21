@@ -1,5 +1,8 @@
 import pygame
 from constants import *
+
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 from player import Player
 
 def main():
@@ -10,7 +13,14 @@ def main():
     # Add groups to reduce complexity
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
+    # instatiate the asteroid models
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = updatable
+    asteroid_field = AsteroidField() 
+
+    # instantiate the player model
     Player.containers = (updatable, drawable)
 
     # instantiate a Player object
@@ -18,7 +28,7 @@ def main():
     Player.draw(player, screen)
     
     dt = 0
-    
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
