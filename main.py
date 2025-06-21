@@ -32,7 +32,7 @@ def main():
     Player.draw(player, screen)
     
     dt = 0
-
+    
     # inifinite loop to keep screen up
     while True:
         for event in pygame.event.get():
@@ -42,16 +42,18 @@ def main():
         updatable.update(dt)
 
         # Collision logic
-        for asteroid in asteroids: 
+        for asteroid in asteroids:
             if asteroid.collides_with(player):
                 print("Game over!")
                 sys.exit()
 
         # Bullet collision logic
         for shot in shots:
-            if asteroid.collides_with(shot):
-                shot.kill()
-                asteroid.kill()
+            for asteroid in asteroids:
+                if asteroid.collides_with(shot):
+                    shot.kill()
+                    asteroid.split()
+                    break  # Exit inner loop since shot is destroyed
 
         screen.fill("black")
         
