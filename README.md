@@ -26,7 +26,7 @@ As a best practice, each Python project on your machine should have its own virt
    ```bash
    mkdir asteroids-game
    cd asteroids-game
-   git init
+   git clone (https://github.com/dakotaling/asteroids.git)
    ```
 
 2. **Create a virtual environment at the top level of your project directory**:
