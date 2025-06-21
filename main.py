@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 
@@ -29,12 +30,19 @@ def main():
     
     dt = 0
 
+    # inifinite loop to keep screen up
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
             
         updatable.update(dt)
+
+        # Collision logic
+        for asteroid in asteroids: 
+            if asteroid.collides_with(player):
+                print("Game over!")
+                sys.exit()
 
         screen.fill("black")
         
